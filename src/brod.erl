@@ -167,6 +167,7 @@
              , topic/0
              , topic_partition/0
              , value/0
+             , txn_id/0
              ]).
 
 -include("brod_int.hrl").
@@ -191,6 +192,8 @@
                | [?TKV(msg_ts(), key(), value())] %% backward compatible
                | kpro:msg_input() %% one magic v2 message
                | kpro:batch_input(). %% maybe nested batch
+-type txn_id() :: undefined %% no transaction id
+                | binary().
 
 -type msg_input() :: kpro:msg_input().
 -type batch_input() :: [msg_input()].
