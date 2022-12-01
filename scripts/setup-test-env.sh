@@ -26,8 +26,8 @@ export KAFKA_VERSION=$VERSION
 
 TD="$(cd "$(dirname "$0")" && pwd)"
 
-docker-compose -f $TD/docker-compose.yml down || true
-docker-compose -f $TD/docker-compose.yml up -d
+docker compose -f $TD/docker-compose.yml down || true
+docker compose -f $TD/docker-compose.yml up -d
 
 n=0
 while [ "$(docker exec kafka-1 bash -c '/opt/kafka/bin/kafka-topics.sh --zookeeper localhost --list')" != '' ]; do
