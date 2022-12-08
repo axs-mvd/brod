@@ -291,7 +291,7 @@ init({ClientPid, Topic, Partition, Config}) ->
   init({ClientPid, Topic, Partition, Config, false});
 
 %% @private
-init({ClientPid, Topic, Partition, Config, TxnCtx}) ->
+init({ClientPid, Topic, Partition, TxnCtx, Config}) ->
   erlang:process_flag(trap_exit, true),
   BufferLimit = ?config(partition_buffer_limit, ?DEFAULT_PARITION_BUFFER_LIMIT),
   OnWireLimit = ?config(partition_onwire_limit, ?DEFAULT_PARITION_ONWIRE_LIMIT),
